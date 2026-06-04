@@ -1,52 +1,63 @@
 [
   {
-    "emoji": "🤖",
-    "question": "Quante ore a settimana utilizzi già strumenti di intelligenza artificiale?",
+    "emoji": "🏠",
+    "question": "Nella polizza casa, cosa si intende per 'valore a nuovo'?",
     "answers": [
-      "Meno di 1 ora",
-      "Tra 1 e 3 ore",
-      "Tra 3 e 7 ore",
-      "Più di 7 ore"
+      "Il valore di mercato dell'immobile",
+      "Il costo di ricostruzione senza detrazione vetustà",
+      "Il prezzo di acquisto rivalutato ISTAT",
+      "Il valore catastale dell'immobile"
     ]
   },
   {
-    "emoji": "💡",
-    "question": "Qual è il tuo principale ostacolo nell'adottare nuovi strumenti digitali?",
+    "emoji": "🔥",
+    "question": "Quale garanzia copre i danni causati da un corto circuito all'impianto elettrico?",
     "answers": [
-      "Non ho tempo per imparare",
-      "Non so da dove iniziare",
-      "Troppi strumenti, poca chiarezza",
-      "Manca supporto nel mio team"
+      "Furto e rapina",
+      "RC verso terzi",
+      "Incendio e scoppio",
+      "Fenomeni atmosferici"
     ]
   },
   {
-    "emoji": "🚀",
-    "question": "Se potessi automatizzare UNA cosa del tuo lavoro, quale sceglieresti?",
+    "emoji": "💧",
+    "question": "I danni da infiltrazione d'acqua proveniente dal tetto sono tipicamente coperti da quale garanzia?",
     "answers": [
-      "Email e comunicazioni",
-      "Report e analisi dati",
-      "Gestione clienti e agenda",
-      "Documentazione e contratti"
+      "Incendio",
+      "Rottura tubi e danni da acqua",
+      "Fenomeni atmosferici",
+      "Non sono mai coperti"
     ]
   },
   {
-    "emoji": "🎯",
-    "question": "Come descriveresti il tuo rapporto con la tecnologia?",
+    "emoji": "🏗️",
+    "question": "Un cliente assicura solo il contenuto e non il fabbricato. Se crolla un muro portante per cedimento strutturale, cosa succede?",
     "answers": [
-      "Early adopter — voglio essere il primo!",
-      "Pragmatico — uso ciò che funziona",
-      "Scettico — preferisco il collaudato",
-      "Curioso ma un po' frenato"
+      "Il danno al contenuto è coperto",
+      "Tutto è coperto automaticamente",
+      "Il danno non è coperto da nessuna garanzia",
+      "Interviene la RC del condominio"
     ]
   },
   {
-    "emoji": "🏆",
-    "question": "Tra 2 anni, come immagini il tuo lavoro grazie all'IA?",
+    "emoji": "⚠️",
+    "question": "Cos'è la 'regola proporzionale' in una polizza casa?",
     "answers": [
-      "Molto automatizzato e veloce",
-      "Più preciso, meno burocrazia",
-      "Quasi uguale a oggi",
-      "Non lo so, mi spaventa un po'"
+      "Lo sconto applicato al rinnovo",
+      "La riduzione del risarcimento se il valore assicurato è inferiore al valore reale",
+      "Il calcolo del premio in base ai metri quadri",
+      "La franchigia applicata ai sinistri gravi"
+    ]
+  },
+  {
+    "emoji": "👥",
+    "question": "La garanzia RC Capofamiglia copre anche i danni causati da:",
+    "answers": [
+      "Solo il contraente della polizza",
+      "Il contraente e il coniuge, non i figli",
+      "Tutti i conviventi abituali inclusi animali domestici",
+      "Solo i danni causati nell'abitazione assicurata"
     ]
   }
 ]
+
