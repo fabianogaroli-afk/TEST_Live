@@ -21,7 +21,7 @@ try {
 }
 
 const state = {
-  phase: 'waiting', // waiting | voting | closed | results | finished
+  phase: 'waiting',
   currentIndex: -1,
   votes: {},
   voters: new Set(),
@@ -64,6 +64,9 @@ app.post('/api/auth', (req, res) => {
 });
 
 app.get('/api/info', (req, res) => {
+  if (process.env.RENDER_EXTERNAL_URL) {
+    return res.json({ url: process.env.RENDER_EXTERNAL_URL });
+  }
   let localIP = 'localhost';
   for (const ifaces of Object.values(os.networkInterfaces())) {
     for (const iface of ifaces) {
@@ -73,7 +76,7 @@ app.get('/api/info', (req, res) => {
       }
     }
   }
-  res.json({ ip: localIP, port: PORT, url: `http://${localIP}:${PORT}` });
+  res.json({ url: `http://${localIP}:${PORT}` });
 });
 
 io.on('connection', (socket) => {
