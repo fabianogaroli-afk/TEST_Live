@@ -11,15 +11,14 @@
 
     body {
       font-family: 'Segoe UI', system-ui, sans-serif;
-      background: #1a0533;
+      background: #0d3341;
       color: white;
       min-height: 100vh;
     }
 
-    /* ── LOGIN OVERLAY ── */
     #login-overlay {
       position: fixed; inset: 0;
-      background: #46178F;
+      background: #0a5568;
       display: flex; align-items: center; justify-content: center;
       z-index: 100;
     }
@@ -30,7 +29,7 @@
       width: 360px;
       text-align: center;
     }
-    .login-emoji { font-size: 64px; margin-bottom: 14px; }
+    .login-logo { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; background: white; padding: 4px; margin-bottom: 14px; }
     .login-title { font-size: 30px; font-weight: 900; margin-bottom: 6px; }
     .login-sub   { font-size: 14px; opacity: 0.65; margin-bottom: 26px; }
     .login-input {
@@ -46,65 +45,39 @@
     .login-btn {
       width: 100%; padding: 14px;
       border-radius: 11px; border: none;
-      background: white; color: #46178F;
+      background: white; color: #0a5568;
       font-size: 16px; font-weight: 900;
       cursor: pointer; transition: opacity 0.2s;
     }
     .login-btn:hover { opacity: 0.88; }
-    #login-error {
-      color: #ff8080; font-size: 13px;
-      margin-top: 10px; display: none;
-    }
+    #login-error { color: #ff8080; font-size: 13px; margin-top: 10px; display: none; }
     #login-error.show { display: block; }
 
-    /* ── MAIN APP ── */
     #app { display: none; flex-direction: column; min-height: 100vh; }
     #app.active { display: flex; }
 
-    /* Header */
     .hdr {
-      background: #46178F;
-      padding: 14px 28px;
+      background: #0a5568;
+      padding: 10px 28px;
       display: flex; align-items: center; justify-content: space-between;
       box-shadow: 0 2px 14px rgba(0,0,0,0.35);
       flex-shrink: 0;
     }
+    .hdr-left { display: flex; align-items: center; gap: 12px; }
+    .hdr-logo { height: 42px; width: 42px; border-radius: 50%; object-fit: cover; background: white; padding: 2px; }
     .hdr-title { font-size: 22px; font-weight: 900; }
     .hdr-q     { font-size: 15px; opacity: 0.75; }
-    .hdr-conn  {
-      background: rgba(255,255,255,0.2);
-      padding: 7px 16px; border-radius: 22px;
-      font-size: 14px; font-weight: 700;
-    }
+    .hdr-conn  { background: rgba(255,255,255,0.2); padding: 7px 16px; border-radius: 22px; font-size: 14px; font-weight: 700; }
 
-    /* Content */
-    .content {
-      flex: 1; padding: 36px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .panel {
-      background: rgba(255,255,255,0.07);
-      border-radius: 22px; padding: 38px;
-      width: 100%; max-width: 920px;
-      animation: fadeIn 0.3s ease;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    .content { flex: 1; padding: 36px; display: flex; align-items: center; justify-content: center; }
+    .panel { background: rgba(255,255,255,0.07); border-radius: 22px; padding: 38px; width: 100%; max-width: 920px; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
     .hidden { display: none !important; }
 
-    /* ── PHASE: SETUP ── */
-    .setup-layout {
-      display: flex; gap: 44px; align-items: center;
-    }
+    .setup-layout { display: flex; gap: 44px; align-items: center; }
     .qr-area { flex-shrink: 0; text-align: center; }
-    #qr-code {
-      background: white; padding: 12px;
-      border-radius: 14px; display: inline-block;
-      margin-bottom: 10px;
-    }
+    #qr-code { background: white; padding: 12px; border-radius: 14px; display: inline-block; margin-bottom: 10px; }
     .qr-url { font-size: 12px; opacity: 0.5; word-break: break-all; max-width: 200px; }
     .setup-info { flex: 1; }
     .setup-title { font-size: 30px; font-weight: 900; margin-bottom: 10px; }
@@ -112,21 +85,10 @@
     .setup-num   { font-size: 52px; font-weight: 900; line-height: 1; }
     .setup-numlabel { font-size: 14px; opacity: 0.55; margin-bottom: 24px; }
 
-    /* ── PHASE: VOTING ── */
     .v-emoji    { font-size: 52px; text-align: center; display: block; margin-bottom: 10px; }
-    .v-question {
-      font-size: 26px; font-weight: 900; text-align: center;
-      margin-bottom: 24px; line-height: 1.3;
-    }
-    .v-answers {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 12px; margin-bottom: 26px;
-    }
-    .v-answer {
-      border-radius: 11px; padding: 13px 16px;
-      font-size: 15px; font-weight: 600;
-      display: flex; align-items: center; gap: 10px;
-    }
+    .v-question { font-size: 26px; font-weight: 900; text-align: center; margin-bottom: 24px; line-height: 1.3; }
+    .v-answers  { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 26px; }
+    .v-answer   { border-radius: 11px; padding: 13px 16px; font-size: 15px; font-weight: 600; display: flex; align-items: center; gap: 10px; }
     .v-answer[data-i="0"] { background: rgba(226,27,60,0.25);  border: 2px solid #E21B3C; }
     .v-answer[data-i="1"] { background: rgba(19,104,206,0.25); border: 2px solid #1368CE; }
     .v-answer[data-i="2"] { background: rgba(216,158,0,0.25);  border: 2px solid #D89E00; }
@@ -137,48 +99,22 @@
     .vote-ctr-num   { font-size: 56px; font-weight: 900; line-height: 1; }
     .vote-ctr-label { font-size: 14px; opacity: 0.55; }
 
-    /* ── PHASE: CLOSED ── */
     .closed-center { text-align: center; }
     .closed-emoji  { font-size: 70px; margin-bottom: 14px; }
     .closed-title  { font-size: 28px; font-weight: 900; margin-bottom: 8px; }
     .closed-sub    { font-size: 16px; opacity: 0.65; margin-bottom: 28px; }
 
-    /* ── PHASE: RESULTS ── */
-    .r-question {
-      font-size: 24px; font-weight: 900; text-align: center;
-      margin-bottom: 30px; line-height: 1.3;
-    }
+    .r-question { font-size: 24px; font-weight: 900; text-align: center; margin-bottom: 30px; line-height: 1.3; }
     .r-bars { margin-bottom: 30px; }
-    .r-row  {
-      display: flex; align-items: center;
-      gap: 14px; margin-bottom: 16px;
-    }
-    .r-chip {
-      width: 48px; height: 48px; border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 20px; font-weight: 900; flex-shrink: 0;
-    }
+    .r-row  { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+    .r-chip { width: 48px; height: 48px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 900; flex-shrink: 0; }
     .r-chip[data-i="0"] { background: #E21B3C; }
     .r-chip[data-i="1"] { background: #1368CE; }
     .r-chip[data-i="2"] { background: #D89E00; }
     .r-chip[data-i="3"] { background: #26890C; }
-    .r-answer-text {
-      width: 230px; flex-shrink: 0;
-      font-size: 16px; font-weight: 600; line-height: 1.3;
-    }
-    .r-bar-wrap {
-      flex: 1;
-      background: rgba(255,255,255,0.14);
-      border-radius: 9px; height: 46px; overflow: hidden;
-    }
-    .r-bar {
-      height: 100%; border-radius: 9px;
-      width: 0%; transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
-      display: flex; align-items: center;
-      padding-left: 12px;
-      font-size: 15px; font-weight: 800; color: white;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-    }
+    .r-answer-text { width: 230px; flex-shrink: 0; font-size: 16px; font-weight: 600; line-height: 1.3; }
+    .r-bar-wrap { flex: 1; background: rgba(255,255,255,0.14); border-radius: 9px; height: 46px; overflow: hidden; }
+    .r-bar { height: 100%; border-radius: 9px; width: 0%; transition: width 1.2s cubic-bezier(0.4,0,0.2,1); display: flex; align-items: center; padding-left: 12px; font-size: 15px; font-weight: 800; color: white; text-shadow: 0 1px 2px rgba(0,0,0,0.3); }
     .r-bar[data-i="0"] { background: #E21B3C; }
     .r-bar[data-i="1"] { background: #1368CE; }
     .r-bar[data-i="2"] { background: #D89E00; }
@@ -186,44 +122,28 @@
     .r-pct   { width: 56px; text-align: right; font-size: 22px; font-weight: 900; flex-shrink: 0; }
     .r-count { width: 54px; text-align: right; font-size: 13px; opacity: 0.5; flex-shrink: 0; }
 
-    /* ── PHASE: FINISHED ── */
     .fin-center { text-align: center; }
-    .fin-emoji  {
-      font-size: 90px; margin-bottom: 18px;
-      animation: pop 0.5s ease-out;
-    }
-    @keyframes pop {
-      from { transform: scale(0.4) rotate(-15deg); opacity: 0; }
-      to   { transform: scale(1) rotate(0deg); opacity: 1; }
-    }
+    .fin-emoji  { font-size: 90px; margin-bottom: 18px; animation: pop 0.5s ease-out; }
+    @keyframes pop { from { transform: scale(0.4) rotate(-15deg); opacity: 0; } to { transform: scale(1) rotate(0deg); opacity: 1; } }
     .fin-title { font-size: 36px; font-weight: 900; margin-bottom: 8px; }
     .fin-sub   { font-size: 17px; opacity: 0.65; margin-bottom: 28px; }
 
-    /* ── BUTTONS ── */
     .btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .btn {
-      padding: 16px 34px; border-radius: 13px; border: none;
-      font-size: 18px; font-weight: 900; cursor: pointer;
-      transition: transform 0.1s, opacity 0.15s;
-    }
+    .btn { padding: 16px 34px; border-radius: 13px; border: none; font-size: 18px; font-weight: 900; cursor: pointer; transition: transform 0.1s, opacity 0.15s; }
     .btn:hover  { opacity: 0.88; transform: translateY(-2px); }
     .btn:active { transform: translateY(0); }
     .btn-go     { background: #2ecc71; color: white; }
     .btn-danger { background: #E21B3C; color: white; }
     .btn-show   { background: #D89E00; color: white; }
     .btn-next   { background: #1368CE; color: white; }
-    .btn-ghost  {
-      background: rgba(255,255,255,0.12); color: white;
-      font-size: 15px; padding: 12px 22px;
-    }
+    .btn-ghost  { background: rgba(255,255,255,0.12); color: white; font-size: 15px; padding: 12px 22px; }
   </style>
 </head>
 <body>
 
-<!-- LOGIN -->
 <div id="login-overlay">
   <div class="login-box">
-    <div class="login-emoji">🎯</div>
+    <img src="/logo.png" class="login-logo" alt="Logo">
     <div class="login-title">Quiz Live</div>
     <div class="login-sub">Accesso riservato al presentatore</div>
     <input type="password" id="pwd-input" class="login-input" placeholder="Password regia..." autofocus>
@@ -232,20 +152,19 @@
   </div>
 </div>
 
-<!-- APP -->
 <div id="app">
-  <!-- Header -->
   <div class="hdr">
-    <div class="hdr-title">🎯 Quiz Live</div>
+    <div class="hdr-left">
+      <img src="/logo.png" class="hdr-logo" alt="Logo">
+      <div class="hdr-title">Quiz Live</div>
+    </div>
     <div class="hdr-q" id="hdr-q">—</div>
     <div class="hdr-conn" id="hdr-conn">👥 0 connessi</div>
   </div>
 
-  <!-- Content -->
   <div class="content">
     <div class="panel">
 
-      <!-- SETUP -->
       <div id="ph-setup">
         <div class="setup-layout">
           <div class="qr-area">
@@ -254,10 +173,7 @@
           </div>
           <div class="setup-info">
             <div class="setup-title">Pronti a partire? 🚀</div>
-            <div class="setup-sub">
-              I partecipanti scansionano il QR con il cellulare.<br>
-              Quando tutti sono connessi, dai il via!
-            </div>
+            <div class="setup-sub">I partecipanti scansionano il QR con il cellulare.<br>Quando tutti sono connessi, dai il via!</div>
             <div class="setup-num" id="setup-conn">0</div>
             <div class="setup-numlabel">partecipanti connessi</div>
             <div class="btn-row" style="margin-top:22px">
@@ -267,7 +183,6 @@
         </div>
       </div>
 
-      <!-- VOTING -->
       <div id="ph-voting" class="hidden">
         <span class="v-emoji" id="v-emoji">❓</span>
         <div class="v-question" id="v-question"></div>
@@ -281,7 +196,6 @@
         </div>
       </div>
 
-      <!-- CLOSED -->
       <div id="ph-closed" class="hidden">
         <div class="closed-center">
           <div class="closed-emoji">🔒</div>
@@ -293,7 +207,6 @@
         </div>
       </div>
 
-      <!-- RESULTS -->
       <div id="ph-results" class="hidden">
         <div class="r-question" id="r-question"></div>
         <div class="r-bars" id="r-bars"></div>
@@ -303,7 +216,6 @@
         </div>
       </div>
 
-      <!-- FINISHED -->
       <div id="ph-finished" class="hidden">
         <div class="fin-center">
           <div class="fin-emoji">🏆</div>
@@ -325,7 +237,6 @@ let password = '';
 let currentState = null;
 const socket = io();
 
-/* ── LOGIN ── */
 document.getElementById('pwd-btn').addEventListener('click', tryLogin);
 document.getElementById('pwd-input').addEventListener('keydown', e => { if (e.key === 'Enter') tryLogin(); });
 
@@ -364,7 +275,6 @@ async function buildQR() {
   });
 }
 
-/* ── ACTIONS ── */
 function send(type) { socket.emit('action', { password, type }); }
 
 document.getElementById('btn-start').addEventListener('click', () => send('next'));
@@ -380,7 +290,6 @@ document.getElementById('btn-next').addEventListener('click', () => {
 document.getElementById('btn-reset-r').addEventListener('click', () => send('reset'));
 document.getElementById('btn-reset-f').addEventListener('click', () => send('reset'));
 
-/* ── SOCKET EVENTS ── */
 socket.on('connections', (n) => {
   document.getElementById('hdr-conn').textContent = `👥 ${n} connessi`;
   document.getElementById('setup-conn').textContent = n;
@@ -395,21 +304,15 @@ socket.on('state', (data) => {
   renderPhase(data);
 });
 
-/* ── RENDER ── */
 function renderPhase({ phase, question, questionIndex, totalQuestions, votes, totalVotes }) {
-  // Header
   document.getElementById('hdr-q').textContent =
-    questionIndex >= 0
-      ? `Domanda ${questionIndex + 1} / ${totalQuestions}`
-      : `— / ${totalQuestions}`;
+    questionIndex >= 0 ? `Domanda ${questionIndex + 1} / ${totalQuestions}` : `— / ${totalQuestions}`;
 
-  // Hide all phases
   ['setup','voting','closed','results','finished'].forEach(p =>
     document.getElementById(`ph-${p}`).classList.add('hidden'));
 
   if (phase === 'waiting') {
     document.getElementById('ph-setup').classList.remove('hidden');
-
   } else if (phase === 'voting') {
     document.getElementById('ph-voting').classList.remove('hidden');
     if (question) {
@@ -418,23 +321,18 @@ function renderPhase({ phase, question, questionIndex, totalQuestions, votes, to
       document.getElementById('v-count').textContent = totalVotes || 0;
       buildVotingAnswers(question.answers);
     }
-
   } else if (phase === 'closed') {
     document.getElementById('ph-closed').classList.remove('hidden');
     document.getElementById('closed-sub').textContent =
       `Ricevuti ${totalVotes || 0} voti — mostra i risultati quando vuoi.`;
-
   } else if (phase === 'results') {
     document.getElementById('ph-results').classList.remove('hidden');
     if (question && votes) {
-      document.getElementById('r-question').textContent =
-        question.emoji + '  ' + question.text;
+      document.getElementById('r-question').textContent = question.emoji + '  ' + question.text;
       const isLast = questionIndex === totalQuestions - 1;
-      document.getElementById('btn-next').textContent =
-        isLast ? '🏁 Termina Quiz' : 'Prossima Domanda →';
+      document.getElementById('btn-next').textContent = isLast ? '🏁 Termina Quiz' : 'Prossima Domanda →';
       buildResults(question.answers, votes, totalVotes);
     }
-
   } else if (phase === 'finished') {
     document.getElementById('ph-finished').classList.remove('hidden');
   }
@@ -456,7 +354,6 @@ function buildResults(answers, votes, totalVotes) {
   const c = document.getElementById('r-bars');
   c.innerHTML = '';
   const total = totalVotes || 1;
-
   answers.forEach((text, i) => {
     const count = votes[i] || 0;
     const pct = totalVotes > 0 ? Math.round((count / total) * 100) : 0;
@@ -465,14 +362,11 @@ function buildResults(answers, votes, totalVotes) {
     row.innerHTML = `
       <div class="r-chip" data-i="${i}">${ICONS[i]}</div>
       <div class="r-answer-text">${text}</div>
-      <div class="r-bar-wrap">
-        <div class="r-bar" data-i="${i}" id="rbar-${i}"></div>
-      </div>
+      <div class="r-bar-wrap"><div class="r-bar" data-i="${i}" id="rbar-${i}"></div></div>
       <div class="r-pct" id="rpct-${i}">0%</div>
       <div class="r-count">${count} voti</div>`;
     c.appendChild(row);
   });
-
   requestAnimationFrame(() => {
     answers.forEach((_, i) => {
       const count = votes[i] || 0;
