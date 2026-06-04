@@ -10,7 +10,7 @@
 
     body {
       font-family: 'Segoe UI', system-ui, sans-serif;
-      background: #46178F;
+      background: #0d3341;
       color: white;
       min-height: 100dvh;
       display: flex;
@@ -37,17 +37,25 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── WAITING ── */
+    .logo {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: white;
+      padding: 3px;
+      margin-bottom: 16px;
+    }
+
     .waiting-emoji {
-      font-size: 88px;
+      font-size: 72px;
       animation: bounce 1.6s ease-in-out infinite;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       50%       { transform: translateY(-18px); }
     }
-    .waiting-title { font-size: 30px; font-weight: 900; margin-bottom: 10px; }
+    .waiting-title { font-size: 28px; font-weight: 900; margin-bottom: 10px; }
     .waiting-sub   { font-size: 16px; opacity: 0.75; }
     .dots::after {
       content: '';
@@ -60,7 +68,6 @@
       100% { content: '...'; }
     }
 
-    /* ── QUESTION ── */
     .q-header {
       background: rgba(255,255,255,0.15);
       border-radius: 18px;
@@ -102,12 +109,10 @@
     .answer-btn[data-i="3"] { background: #26890C; }
     .answer-icon { font-size: 22px; flex-shrink: 0; }
 
-    /* ── VOTED ── */
-    .big-emoji  { font-size: 88px; margin-bottom: 18px; }
+    .big-emoji  { font-size: 80px; margin-bottom: 18px; }
     .big-title  { font-size: 28px; font-weight: 900; margin-bottom: 10px; }
     .big-sub    { font-size: 15px; opacity: 0.75; }
 
-    /* ── RESULTS ── */
     .results-q {
       font-size: 16px;
       font-weight: 700;
@@ -116,12 +121,7 @@
       line-height: 1.3;
     }
     .res-bars { width: 100%; margin-bottom: 18px; }
-    .res-row  {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
+    .res-row  { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
     .res-chip {
       width: 30px; height: 30px;
       border-radius: 6px;
@@ -150,17 +150,10 @@
     .res-bar[data-i="1"] { background: #1368CE; }
     .res-bar[data-i="2"] { background: #D89E00; }
     .res-bar[data-i="3"] { background: #26890C; }
-    .res-pct {
-      width: 38px;
-      text-align: right;
-      font-size: 14px;
-      font-weight: 800;
-      flex-shrink: 0;
-    }
+    .res-pct { width: 38px; text-align: right; font-size: 14px; font-weight: 800; flex-shrink: 0; }
 
-    /* ── FINISHED ── */
     .fin-emoji {
-      font-size: 88px;
+      font-size: 80px;
       margin-bottom: 18px;
       animation: pop 0.5s ease-out;
     }
@@ -173,6 +166,7 @@
 <body>
 
 <div id="s-waiting" class="screen active">
+  <img src="/logo.png" class="logo" alt="Logo">
   <div class="waiting-emoji">🎯</div>
   <div class="waiting-title">Sei connesso!</div>
   <div class="waiting-sub">Aspetta la prima domanda<span class="dots"></span></div>
@@ -199,6 +193,7 @@
 </div>
 
 <div id="s-finished" class="screen">
+  <img src="/logo.png" class="logo" alt="Logo">
   <div class="fin-emoji">🏆</div>
   <div class="big-title">Grazie!</div>
   <div class="big-sub">Hai completato il quiz.<br>Ottimo lavoro! 🎉</div>
@@ -218,7 +213,6 @@ socket.on('state', ({ phase, question, votes, totalVotes }) => {
   if (phase === 'waiting') {
     hasVoted = false;
     show('s-waiting');
-
   } else if (phase === 'voting') {
     hasVoted = false;
     if (question) {
@@ -227,17 +221,14 @@ socket.on('state', ({ phase, question, votes, totalVotes }) => {
       buildAnswers(question.answers);
     }
     show('s-question');
-
   } else if (phase === 'closed') {
     show('s-voted');
-
   } else if (phase === 'results') {
     if (question && votes) {
       document.getElementById('res-q-text').textContent = question.emoji + '  ' + question.text;
       buildResults(question.answers, votes, totalVotes);
     }
     show('s-results');
-
   } else if (phase === 'finished') {
     show('s-finished');
   }
@@ -272,7 +263,6 @@ function buildResults(answers, votes, totalVotes) {
   const container = document.getElementById('res-bars');
   container.innerHTML = '';
   const total = totalVotes || 1;
-
   answers.forEach((text, i) => {
     const count = votes[i] || 0;
     const pct = totalVotes > 0 ? Math.round((count / total) * 100) : 0;
@@ -286,7 +276,6 @@ function buildResults(answers, votes, totalVotes) {
       <div class="res-pct" id="pp-${i}">0%</div>`;
     container.appendChild(row);
   });
-
   requestAnimationFrame(() => {
     answers.forEach((_, i) => {
       const count = votes[i] || 0;
