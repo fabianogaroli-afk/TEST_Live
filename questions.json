@@ -1,0 +1,52 @@
+[
+  {
+    "emoji": "🤖",
+    "question": "Quante ore a settimana utilizzi già strumenti di intelligenza artificiale?",
+    "answers": [
+      "Meno di 1 ora",
+      "Tra 1 e 3 ore",
+      "Tra 3 e 7 ore",
+      "Più di 7 ore"
+    ]
+  },
+  {
+    "emoji": "💡",
+    "question": "Qual è il tuo principale ostacolo nell'adottare nuovi strumenti digitali?",
+    "answers": [
+      "Non ho tempo per imparare",
+      "Non so da dove iniziare",
+      "Troppi strumenti, poca chiarezza",
+      "Manca supporto nel mio team"
+    ]
+  },
+  {
+    "emoji": "🚀",
+    "question": "Se potessi automatizzare UNA cosa del tuo lavoro, quale sceglieresti?",
+    "answers": [
+      "Email e comunicazioni",
+      "Report e analisi dati",
+      "Gestione clienti e agenda",
+      "Documentazione e contratti"
+    ]
+  },
+  {
+    "emoji": "🎯",
+    "question": "Come descriveresti il tuo rapporto con la tecnologia?",
+    "answers": [
+      "Early adopter — voglio essere il primo!",
+      "Pragmatico — uso ciò che funziona",
+      "Scettico — preferisco il collaudato",
+      "Curioso ma un po' frenato"
+    ]
+  },
+  {
+    "emoji": "🏆",
+    "question": "Tra 2 anni, come immagini il tuo lavoro grazie all'IA?",
+    "answers": [
+      "Molto automatizzato e veloce",
+      "Più preciso, meno burocrazia",
+      "Quasi uguale a oggi",
+      "Non lo so, mi spaventa un po'"
+    ]
+  }
+]
